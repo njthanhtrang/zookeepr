@@ -52,17 +52,37 @@ function filterByQuery(query, animalsArray) {
   return filteredResults;
 }
 
+function findById(id, animalsArray) {
+  const result = animalsArray.filter((animal) => animal.id === id)[0];
+  return result;
+}
+
 // add route
 // .get() takes a string describing route client fetches from
 // and a callback fx that executes everytime route is accessed with GET req
 app.get("/api/animals", (req, res) => {
   let results = animals;
+  //   req.query is multifaceted, combining multiple parameters
   if (req.query) {
     results = filterByQuery(req.query, results);
   }
   // returns new filtered array
   //   res can also take .send()
   res.json(results);
+});
+
+// parameter route comes AFTER the other GET route
+app.get("/api/animals/:id", (req, res) => {
+  // req.param is specific to a SINGLE property
+  // this route returns a single animal, id is unique
+  // no query on a single animal so no need for all other code in filterbyQuery
+  const result = findById(req.params.id, animals);
+  if (result) {
+    res.json(result);
+  } else {
+    // the specific animal asked for does not exist
+    res.send(404);
+  }
 });
 
 // make server listen
