@@ -20,5 +20,11 @@
   "homepage": "https://github.com/njthanhtrang/zookeepr#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

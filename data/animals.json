@@ -135,6 +135,16 @@
         "hungry"
       ],
       "id": "13"
+    },
+    {
+      "name": "jen",
+      "species": "human",
+      "diet": "omnivore",
+      "personalityTraits": [
+        "anxious",
+        "loving"
+      ],
+      "id": "14"
     }
   ]
 }
