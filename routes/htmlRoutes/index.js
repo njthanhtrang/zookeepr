@@ -22,7 +22,7 @@ router.get("/zookeepers", (req, res) => {
 // wildcard route, will receive homepage as res
 // this should always come as last route
 router.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/index.html"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 module.exports = router;
